@@ -1,5 +1,5 @@
 resource "aws_elasticache_subnet_group" "subnet_group" {
-  name       = "${var.repo_name}-${var.branch-name}"
+  name       = "${var.repo_name}-${var.branch_name}"
   subnet_ids = data.aws_subnet_ids.subnets.ids
 }
 
