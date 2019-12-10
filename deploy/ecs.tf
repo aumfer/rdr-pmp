@@ -26,6 +26,14 @@ module "container_definition" {
     {
       name  = "sha"
       value = var.source_rev
+    },
+    {
+      name = "ETH_URL"
+      value = var.eth_url
+    },
+    {
+      name = "REDIS_URL"
+      value = aws_elasticache_cluster.redis.cache_nodes.0.address
     }
   ]
 }

@@ -7,6 +7,8 @@ variable "source_rev" {}
 
 variable "ecr_repo" {}
 
+variable "eth_url" {}
+
 variable "aws_region" {
   default = "us-east-1"
 }

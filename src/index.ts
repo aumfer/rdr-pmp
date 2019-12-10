@@ -4,7 +4,7 @@ import Redis from 'ioredis';
 import _ from 'lodash';
 import {Observable} from 'rxjs';
 
-const ethUrl = process.env.PARITY_URL || 'http://localhost:8545';
+const ethUrl = process.env.ETH_URL || 'http://localhost:8545';
 const web3 = new Web3(ethUrl);
 
 const redisUrl = process.env.REDIS_URL || 'redis://127.0.0.1:6379';
