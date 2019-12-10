@@ -9,6 +9,6 @@ resource "aws_elasticache_cluster" "redis" {
   node_type            = "cache.t2.micro"
   num_cache_nodes      = 1
 
-  security_group_ids = [aws_security_group.security_group.id]
+  security_group_ids = [data.aws_security_group.security_group.arn]
   subnet_group_name = aws_elasticache_subnet_group.subnet_group.name
 }
