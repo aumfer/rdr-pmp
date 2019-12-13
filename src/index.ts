@@ -20,7 +20,7 @@ const pendingTransactions = new Observable<string>(observer => {
         pendingTransactionsSubscription = web3.eth.subscribe('pendingTransactions', function onSubscribe(error, result) {
             //console.log(error || result);
         }).on('data', function onPendingTransaction(data) {
-            console.log(`onPendingTransaction: ${JSON.stringify(data)}`);
+            //console.log(`onPendingTransaction: ${JSON.stringify(data)}`);
             observer.next(data);
         }).on('error', function onPendingTransactionError(error) {
             console.log(`onPendingTransactionError: ${JSON.stringify(error)}`);
