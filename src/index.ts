@@ -36,9 +36,13 @@ const pendingTransactions = new Observable<string>(observer => {
     };
 });
 
-pendingTransactions.subscribe(data => {
-    // todo fetch more data than just the hash
-    //const params = _(data).toPairs().flatten().value();
-    const params = ['hash', data];
-    redis.xadd('rdr', '*', ...params);
+pendingTransactions.subscribe(hash => {
+    web3.eth.getTransaction(hash).then(function(data) {
+        if (!data) return;
+        // todo fetch more data than just the hash
+        const params = _(data).toPairs().flatten().value();
+        //console.log(JSON.stringify(params));
+        //const params = ['hash', data];
+        redis.xadd('rdr', '*', ...params);
+    });
 });
